@@ -22,7 +22,10 @@ FROM paddlepaddle/paddle:${paddle_tag}
 MAINTAINER PaddlePaddle Authors <paddle-dev@baidu.com>
 
 COPY . /book
-RUN python /book/.tools/cache_dataset.py
+
+# Cache this layer when user execute docker build
+RUN pip install -U nltk && \
+    python /book/.tools/cache_dataset.py
 
 RUN ${update_mirror_cmd}
     apt-get update && \

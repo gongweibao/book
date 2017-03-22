@@ -1,6 +1,6 @@
 #!/bin/env python
 import paddle.v2.dataset as dataset
-import ntlk
+import nltk
 
 # Cache conll05
 dataset.common.download(dataset.conll05.WORDDICT_URL, 'conll05st', \
